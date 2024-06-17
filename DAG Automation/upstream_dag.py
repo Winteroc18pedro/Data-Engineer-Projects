@@ -103,7 +103,7 @@ empty_bucket_source_object = "from-git/chapter-4/data/staging/level_5_dag_sensor
 def create_empty_folders(date): 
     empty_destination = f"{empty_bucket_source_object}{date}/"
     client = storage.Client()     #Here I am initializing the Google Cloud Storage Client to be able to create folders in the storage
-    bucket = client.bucket(gcs_source_data_bucket)  #Here I am getting the bucket in which I want to create empty folders
+    bucket = client.bucket(gcs_source_data_bucket)  
     folder_name = empty_destination
     blob = bucket.blob(folder_name)
     blob.upload_from_string('') #upload an empty string to the blob to create the folder
